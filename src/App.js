@@ -4,30 +4,44 @@ import TasksList from './components/TasksList/TasksList';
 import './App.css';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.someFunction = this.someFunction.bind(this);
-        this.state = {value:''};
-    }
-    
-    someFunction(value) {
-        this.setState({value: value});
-    }
-    
-    render() {
-        
-        return (
 
-            <div className='app'>
-                <CreateTasksPanel
-                    onClickCreate={this.someFunction}
-                />
-                <TasksList
-                    task={this.state.value}
-                />
-            </div>
-        );
+  state = { tasks: [] }
+
+  addValues = (value) => {
+    if (value) {
+      this.setState({
+        tasks: [
+          ...this.state.tasks,
+          {
+            completed: false,
+            id: new Date().getTime(),
+            value: value
+          }]
+      });
     }
+  }
+
+
+  render() {
+
+    const onClickDelete = (id) => {
+      const arr = this.state.tasks.filter((task) => task.id !== id)
+      this.setState({ tasks: arr })
+    }
+
+    return (
+
+      <div className='app'>
+        <CreateTasksPanel
+          onClickCreate={this.addValues}
+        />
+        <TasksList
+          tasks={this.state.tasks}
+          onClickDelete={onClickDelete}
+        />
+      </div>
+    );
+  }
 }
 
 export default App

@@ -1,5 +1,25 @@
 .createTasksPanel {
-    border: 2px solid rgb(180, 145, 70);
-    padding: 15px;
-    text-align: center;
+  border: 2px solid blueviolet;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.createTasksPanel-input {
+  line-height: 1.5;
+  padding: 0px 5px;
+  margin-right: 5px;
+  border: 1px solid coral;
+}
+
+.createTasksPanel button {
+  line-height: 1.5;
+  padding: 2px 5px;
+  border: none;
+  background-color: beige;
+}
+
+.createTasksPanel button:hover {
+  background-color: darksalmon;
+  transition: all .3s ease;
 }

@@ -1,8 +1,78 @@
 .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid coral;
-    padding: 5px;
-    margin-bottom: 5px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid coral;
+  padding: 5px;
+}
+
+.task:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.task input:first-child {
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  width: 15px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.task input:first-child:checked{
+  background-color: transparent;
+}
+
+.task input:first-child:checked::after {
+  position: absolute;
+  content: "\d7";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 17px;
+  height: 100%;
+  width: 105%;
+  line-height: 80%;
+  text-align: center;
+  color: black;
+}
+
+.task-input {
+  line-height: 1.5;
+  width: calc(100% - 125px);
+  border: none;
+  padding: 0px 5px;
+  background-color: #fff;
+  color: #757575;
+}
+.completed {
+  text-decoration: line-through;
+  background-color:papayawhip;
+}
+
+.active {
+  border: 1px solid black;
+}
+
+.buttons-container button:first-child {
+  margin-right: 3px;
+}
+
+.buttons-container button {
+  line-height: 1.5;
+  padding: 0px 3px;
+  border: none;
+  background-color: beige;
+}
+
+.hover {
+  background-color: darksalmon !important; 
+}
+
+.buttons-container button:hover {
+  background-color: darksalmon;
+  transition: all .3s ease;
 }

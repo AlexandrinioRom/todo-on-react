@@ -1,47 +1,42 @@
-import React from 'react';
+import React from 'react'
 import './CreateTasksPanel.css'
 
 class CreateTasksPanel extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props)
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = { value: ''};
-        
-    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.state = { value: '' }
+  }
 
-    
-    
-    handleSubmit(event) {
-        this.props.onClickCreate(this.state.value);
-        this.setState({value: ''});
-        event.preventDefault();
-    }
+  handleSubmit(event) {
+    this.props.onClickCreate(this.state.value)
+    this.setState({ value: '' })
+    event.preventDefault()
+  }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-    
-    render() {
-        return (
-            <div>
-                <form
-                    className='createTasksPanel'
-                    onSubmit={this.handleSubmit}>
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
 
-                        <input
-                            type="text"
-                            placeholder="Create Task"
-                            onChange={this.handleChange}
-                            value={this.state.value}
-                        />
+  render() {
+    return (
+      <div className="createTasksPanel">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.value}
+            placeholder="Create Task"
+            onChange={this.handleChange}
+            className="createTasksPanel-input"
+          />
 
-                        <button type="submit">create</button>
-                </form>
-            </div>
-        );
-    }
+          <button type="submit">create</button>
+        </form>
+      </div>
+    )
+  }
 }
 
-export default CreateTasksPanel;
+export default CreateTasksPanel
