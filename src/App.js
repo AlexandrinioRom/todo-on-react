@@ -6,10 +6,7 @@ import './App.css';
 
 class App extends React.Component {
 
-  state = {
-    tasks: [],
-    filter: []
-  }
+  state = { tasks: [], filter: 'All' }
 
   addValues = (value) => {
     if (value) {
@@ -20,29 +17,20 @@ class App extends React.Component {
             completed: false,
             id: new Date().getTime(),
             value: value
-          }], filter: [
-            ...this.state.tasks,
-            {
-              completed: false,
-              id: new Date().getTime(),
-              value: value
-            }
-          ]
+          }]
       });
     }
   }
 
-  filterTasks = (tasksArr) => {
-    this.setState({ filter: tasksArr })
+  checkTasks = (tasksArr) => {
+    this.setState({ tasks: tasksArr })
+  }
+
+  filterState = (FilterTaskPanelState) => {
+    this.setState({ filter: FilterTaskPanelState });
   }
 
   render() {
-
-    const onClickDelete = (id) => {
-      const arr = this.state.tasks.filter((task) => task.id !== id)
-      this.setState({ tasks: arr })
-    }
-
     return (
 
       <div className='app'>
@@ -50,12 +38,13 @@ class App extends React.Component {
           onClickCreate={this.addValues}
         />
         <TasksList
-          tasks={this.state.filter}
-          onClickDelete={onClickDelete}
+          tasks={this.state.tasks}
+          onClickDelete={this.checkTasks}
+          checkTasks={this.checkTasks}
+          filterState={this.state.filter}
         />
         <FilterTaskPanel
-          tasks={this.state.tasks}
-          filter={this.filterTasks}
+          filterState={this.filterState}
         />
       </div>
     );

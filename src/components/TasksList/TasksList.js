@@ -4,30 +4,69 @@ import './TaskList.css'
 
 class TasksList extends React.Component {
 
+  filterTasks = (filter) => {
+    let arrFilter = [];
+    switch (filter) {
+      case 'All':
+        arrFilter = this.props.tasks
+        break
+      case 'Active':
+        arrFilter = this.props.tasks.filter(task => task.completed === false)
+        break
+      case 'Completed':
+        arrFilter = this.props.tasks.filter(task => task.completed !== false)
+
+        break
+      // no default
+    }
+    return arrFilter;
+  }
+
   onClickEdit = (id, value) => {
-    this.props.tasks.map((task) => {
-      return (task.id === id) ? task.value = value : false
+
+    const arr = this.props.tasks.map((task) => {
+      if (task.id !== id) {
+        return task
+      }
+      return {
+        ...task,
+        value: value
+      }
     })
-    this.setState(this.props.tasks)
+    this.props.checkTasks(arr)
   }
 
   onClickCompleted = (id) => {
-    this.props.tasks.map((task) => {
-      return (task.id === id) ? task.completed = !task.completed : false
+
+    const arr = this.props.tasks.map((task) => {
+      if (task.id !== id) {
+        return task
+      }
+      return {
+        ...task,
+        completed: !task.completed
+      }
     })
-    this.setState(this.props.tasks)
+    this.props.checkTasks(arr)
   }
 
   onClickDelete = (id) => {
-    this.props.onClickDelete(id)
+    const arr = this.props.tasks.filter((task) => task.id !== id)
+    this.props.checkTasks(arr)
   }
 
   render() {
+
+    const arr = this.filterTasks(this.props.filterState)
+
     return (
+
       <div className="tasksList">
-        {this.props.tasks.length ? (
-          this.props.tasks.map((task) => {
+
+        {arr.length ? (
+          arr.map((task) => {
             return (
+
               <Task
                 id={task.id}
                 key={task.id}
@@ -42,6 +81,7 @@ class TasksList extends React.Component {
         ) : (
           <p>This list is empty</p>
         )}
+
       </div>
     )
   }
