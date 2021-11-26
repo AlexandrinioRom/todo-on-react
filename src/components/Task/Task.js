@@ -33,8 +33,8 @@ class Task extends React.Component {
     return (
       <div className='task'>
         <input type="checkbox" onChange={this.completedTask} />
-        <input
-          className='task-input'
+        <textarea
+          className='task-textarea'
           type="text"
           placeholder={this.props.value}
           disabled={this.state.disabled}

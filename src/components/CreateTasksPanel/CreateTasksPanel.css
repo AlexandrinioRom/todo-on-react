@@ -19,7 +19,8 @@
   background-color: beige;
 }
 
-.createTasksPanel button:hover {
+.createTasksPanel button:hover,
+.createTasksPanel button:active {
   background-color: darksalmon;
-  transition: all .3s ease;
+  transition: all .1s ease;
 }

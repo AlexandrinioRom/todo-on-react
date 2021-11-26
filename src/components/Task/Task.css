@@ -40,14 +40,17 @@
   color: black;
 }
 
-.task-input {
+.task-textarea {
   line-height: 1.5;
+  max-height: 24px;
   width: calc(100% - 125px);
   border: none;
+  resize: none;
   padding: 0px 5px;
   background-color: #fff;
   color: #757575;
 }
+
 .completed {
   text-decoration: line-through;
   background-color:papayawhip;
