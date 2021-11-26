@@ -1,0 +1,28 @@
+.FilterTaskPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid blueviolet;
+  padding: 5px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.input:not(:last-child),
+label {
+  margin-right: 5px;
+}
+
+.input {
+  appearance: none;
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.555);
+}
+
+.input:checked {
+  border: 2px solid #fff;
+}
+

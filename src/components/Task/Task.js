@@ -21,8 +21,7 @@ class Task extends React.Component {
     this.setState({ task: event.target.value })
   }
 
-  completedTask = (event) => {
-    // event.target.nextElementSibling.classList.toggle('completed');
+  completedTask = () => {
     this.props.onClickCompleted(this.props.id)
     this.setState({ completed: !this.state.completed })
   }
@@ -32,19 +31,35 @@ class Task extends React.Component {
   }
 
   render() {
+    const taskTitle = `task-title ${this.state.completed && 'completed'}`
+    const checkbox = `input-checkbox ${this.state.completed && 'checked'}`
     return (
       <div className="task">
-        <input type="checkbox" onChange={this.completedTask} />
-        <textarea
-          type="text"
-          onChange={this.onChange}
-          placeholder={this.props.value}
-          disabled={this.state.disabled}
-          className={`task-textarea ${!this.state.disabled ? 'active' : ''}`}
+        <input
+          type="checkbox"
+          onChange={this.completedTask}
+          className={checkbox}
         />
+        {this.state.disabled ? (
+          <p className={taskTitle}>{this.props.value}</p>
+        ) : (
+          <textarea
+            type="text"
+            onChange={this.onChange}
+            placeholder={this.props.value}
+            className="task-textarea active"
+          />
+        )}
         <div className="buttons-container">
-          <button onClick={this.editTask}>edit</button>
-          <button onClick={this.deleteTask}>delete</button>
+          <button
+            onClick={this.editTask}
+            className={`button-edit ${!this.state.disabled && 'btn-active'}`}
+          >
+            edit
+          </button>
+          <button onClick={this.deleteTask} className="button-edit">
+            delete
+          </button>
         </div>
       </div>
     )

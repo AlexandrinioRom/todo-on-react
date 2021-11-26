@@ -1,8 +1,6 @@
 .task {
-  
   display: flex;
   justify-content: space-between;
-  align-items: center;
   border: 1px solid coral;
   padding: 5px;
 }
@@ -11,21 +9,22 @@
   margin-bottom: 5px;
 }
 
-.task input:first-child {
+.input-checkbox {
   position: relative;
   appearance: none;
   cursor: pointer;
+  margin-top: 3px;
   width: 15px;
   height: 16px;
   background-color: transparent;
   border: 1px solid black;
 }
 
-.task input:first-child:checked{
+.checked {
   background-color: transparent;
 }
 
-.task input:first-child:checked::after {
+.checked::after {
   position: absolute;
   content: "\d7";
   top: 0;
@@ -41,8 +40,8 @@
 }
 
 .task-textarea {
-  line-height: 1.5;
-  max-height: 24px;
+  line-height: 1.2;
+  height: 100%;
   width: calc(100% - 125px);
   border: none;
   resize: none;
@@ -64,18 +63,26 @@
   margin-right: 3px;
 }
 
-.buttons-container button {
+.button-edit {
   line-height: 1.5;
   padding: 0px 3px;
   border: none;
   background-color: beige;
 }
 
-.hover {
+.btn-active {
   background-color: darksalmon !important; 
 }
 
-.buttons-container button:hover {
+.button-edit:hover {
   background-color: darksalmon;
   transition: all .3s ease;
+}
+
+.task-title {
+  line-height: 1.4;
+  word-break: break-all;
+  text-align: start;
+  width: calc(100% - 125px);
+  height: 24px;
 }

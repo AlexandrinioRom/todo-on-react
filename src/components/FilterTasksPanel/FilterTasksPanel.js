@@ -1,4 +1,5 @@
 import React from 'react'
+import './FilterTasksPanel.css'
 
 class FilterTaskPanel extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class FilterTaskPanel extends React.Component {
           id="All"
           type="radio"
           name="filter"
+          className="input"
           defaultChecked
           onChange={this.onChecked}
         />
@@ -26,6 +28,7 @@ class FilterTaskPanel extends React.Component {
           id="Active"
           type="radio"
           name="filter"
+          className="input"
           onChange={this.onChecked}
         />
 
@@ -34,6 +37,7 @@ class FilterTaskPanel extends React.Component {
           id="Completed"
           type="radio"
           name="filter"
+          className="input"
           onChange={this.onChecked}
         />
       </div>

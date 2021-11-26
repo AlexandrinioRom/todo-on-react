@@ -15,7 +15,6 @@ class TasksList extends React.Component {
         break
       case 'Completed':
         arrFilter = this.props.tasks.filter(task => task.completed !== false)
-
         break
       // no default
     }
@@ -66,7 +65,6 @@ class TasksList extends React.Component {
         {arr.length ? (
           arr.map((task) => {
             return (
-
               <Task
                 id={task.id}
                 key={task.id}
