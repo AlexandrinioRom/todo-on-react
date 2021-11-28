@@ -84,5 +84,5 @@
   word-break: break-all;
   text-align: start;
   width: calc(100% - 125px);
-  height: 24px;
+  height: 100%;
 }
