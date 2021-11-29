@@ -1,4 +1,4 @@
-.FilterTaskPanel {
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +26,6 @@ label {
   border: 2px solid #fff;
 }
 
-.filtertaskpanel-items {
+.input_container {
   margin: 0 auto;
 }

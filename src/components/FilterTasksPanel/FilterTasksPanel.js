@@ -1,5 +1,5 @@
 import React from 'react'
-import './FilterTasksPanel.css'
+import style from './FilterTasksPanel.module.css'
 
 class FilterTaskPanel extends React.Component {
   onChecked = (event) => {
@@ -15,37 +15,43 @@ class FilterTaskPanel extends React.Component {
 
   render() {
     return (
-      <div className="FilterTaskPanel">
-        <div className="filtertaskpanel-items">
-          <label htmlFor="All">All</label>
+      <div className={style.main}>
+        <div className={style.input_container}>
+          <label className={style.label} htmlFor="All">
+            All
+          </label>
           <input
             value="All"
             type="radio"
             name="filter"
-            className="input"
+            className={style.input}
             defaultChecked
             onChange={this.onChecked}
           />
 
-          <label htmlFor="Active">Active</label>
+          <label className={style.label} htmlFor="Active">
+            Active
+          </label>
           <input
             value="Active"
             type="radio"
             name="filter"
-            className="input"
+            className={style.input}
             onChange={this.onChecked}
           />
 
-          <label htmlFor="Completed">Completed</label>
+          <label className={style.label} htmlFor="Completed">
+            Completed
+          </label>
           <input
             value="Completed"
             type="radio"
             name="filter"
-            className="input"
+            className={style.input}
             onChange={this.onChecked}
           />
         </div>
-        <span className="tasks-count">{this.tasksCount(this.props.tasks)}</span>
+        <span>{this.tasksCount(this.props.tasks)}</span>
       </div>
     )
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import CreateTasksPanel from './components/CreateTasksPanel/CreateTasksPanel';
 import TasksList from './components/TasksList/TasksList';
 import FilterTaskPanel from './components/FilterTasksPanel/FilterTasksPanel';
-import './App.css';
+import styles from './App.module.css';
 
 class App extends React.Component {
 
@@ -31,9 +31,10 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
 
-      <div className='app'>
+      <div className={styles.app}>
         <CreateTasksPanel
           onClickCreate={this.addValues}
         />

@@ -1,5 +1,5 @@
 import React from 'react'
-import './CreateTasksPanel.css'
+import styles from './CreateTasksPanel.module.css'
 
 class CreateTasksPanel extends React.Component {
   constructor(props) {
@@ -21,17 +21,19 @@ class CreateTasksPanel extends React.Component {
 
   render() {
     return (
-      <div className="createTasksPanel">
+      <div className={styles.header}>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.value}
             placeholder="Create Task"
             onChange={this.handleChange}
-            className="createTasksPanel-input"
+            className={styles.input}
           />
 
-          <button type="submit">create</button>
+          <button
+            className={styles.button}
+            type="submit">create</button>
         </form>
       </div>
     )

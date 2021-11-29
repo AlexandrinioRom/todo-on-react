@@ -9,7 +9,7 @@
   margin-bottom: 5px;
 }
 
-.input-checkbox {
+.checkbox {
   position: relative;
   appearance: none;
   cursor: pointer;
@@ -39,12 +39,11 @@
   color: black;
 }
 
-.task-textarea {
+.input {
   line-height: 1.2;
+  border: 1px solid black;
   height: 100%;
   width: calc(100% - 125px);
-  border: none;
-  resize: none;
   padding: 0px 5px;
   background-color: #fff;
   color: #757575;
@@ -55,31 +54,26 @@
   background-color:papayawhip;
 }
 
-.active {
-  border: 1px solid black;
-}
-
-.buttons-container button:first-child {
+.button_delete,
+.button_edit {
   margin-right: 3px;
-}
-
-.button-edit {
   line-height: 1.5;
   padding: 0px 3px;
   border: none;
   background-color: beige;
 }
 
-.btn-active {
+.button_active {
   background-color: darksalmon !important; 
 }
 
-.button-edit:hover {
+.button_delete:hover,
+.button_edit:hover {
   background-color: darksalmon;
   transition: all .3s ease;
 }
 
-.task-title {
+.title {
   line-height: 1.4;
   word-break: break-all;
   text-align: start;

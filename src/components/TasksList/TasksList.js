@@ -1,6 +1,6 @@
 import React from 'react'
 import Task from '../Task/Task'
-import './TaskList.css'
+import style from './TaskList.module.css'
 
 class TasksList extends React.Component {
 
@@ -57,7 +57,7 @@ class TasksList extends React.Component {
 
     return (
 
-      <div className="tasksList">
+      <div className={style.main}>
 
         {arr.length ? (
           arr.map((task) => {

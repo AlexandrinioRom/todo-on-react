@@ -1,5 +1,5 @@
 import React from 'react'
-import './Task.css'
+import style from './Task.module.css'
 
 class Task extends React.Component {
   constructor(props) {
@@ -29,10 +29,11 @@ class Task extends React.Component {
   }
 
   render() {
-    const titleClassName = `task-title ${this.props.completed && 'completed'}`
-    const checkbox = `input-checkbox ${this.props.completed && 'checked'}`
+    const titleClassName = `${style.title} ${this.props.completed && `${style.completed}`}`
+    const checkbox = `${style.checkbox} ${this.props.completed && `${style.checked}`}`
+    const button_edit = `${style.button_edit} ${!this.state.disabled && `${style.button_active}`}`
     return (
-      <div className="task">
+      <div className={style.task}>
         <input
           type="checkbox"
           onChange={this.completedTask}
@@ -45,17 +46,17 @@ class Task extends React.Component {
             type="text"
             onChange={this.onChange}
             placeholder={this.props.value}
-            className="task-textarea active"
+            className={style.input}
           />
         )}
-        <div className="buttons-container">
+        <div className={style.button_container}>
           <button
             onClick={this.editTask}
-            className={`button-edit ${!this.state.disabled && 'btn-active'}`}
+            className={button_edit}
           >
             edit
           </button>
-          <button onClick={this.deleteTask} className="button-edit">
+          <button onClick={this.deleteTask} className={style.button_delete}>
             delete
           </button>
         </div>
