@@ -2,15 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid blueviolet;
   padding: 5px;
   text-align: center;
-  margin-top: 1px;
+  font-size: 20px;
+  color: #444;
+  background-color: rgb(221, 213, 197);
 }
 
 .input:not(:last-child),
 label {
   margin-right: 5px;
+}
+
+.input:hover {
+  opacity: 0.7;
 }
 
 .input {

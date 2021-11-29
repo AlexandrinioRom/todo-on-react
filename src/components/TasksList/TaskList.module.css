@@ -1,8 +1,9 @@
 .main {
-  border: 2px solid blueviolet;
+  padding: 2px;
   text-align: center;
-  padding: 3px 3px 3px 3px;
   overflow-y:auto;
+  background: rgb(228, 202, 145);
+  box-shadow: inset 0px 2px 3px 0px rgba(154, 147, 140, 0.5);
 }
 
 ::-webkit-scrollbar {

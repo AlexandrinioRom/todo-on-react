@@ -1,27 +1,35 @@
 .task {
   display: flex;
   justify-content: space-between;
-  border: 1px solid coral;
-  padding: 5px;
+  border-radius: 5px;
+  height: 30px;
 }
 
-.task:not(:last-child) {
-  margin-bottom: 5px;
+.task:hover {
+  background-image: linear-gradient(to bottom, rgb(238, 210, 151) 0%,
+  rgb(229, 203, 145) 50%,rgb(238, 210, 151) 100%);
 }
 
 .checkbox {
   position: relative;
   appearance: none;
   cursor: pointer;
-  margin-top: 3px;
-  width: 15px;
-  height: 16px;
+  margin-top: 5px;
+  width: 19px;
+  height: 19px;
   background-color: transparent;
-  border: 1px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.788);
+  border-radius: 3px;
 }
 
 .checked {
   background-color: transparent;
+}
+
+.checkbox:hover,
+.checked:hover {
+  transition: .3s ease-out;
+  transform: rotate(90deg);
 }
 
 .checked::after {
@@ -31,27 +39,28 @@
   bottom: 0;
   left: 0;
   right: 0;
-  font-size: 17px;
+  font-size: 23px;
   height: 100%;
-  width: 105%;
-  line-height: 80%;
+  width: 101%;
+  line-height: 63%;
   text-align: center;
   color: black;
 }
 
 .input {
-  line-height: 1.2;
-  border: 1px solid black;
-  height: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 90%;
   width: calc(100% - 125px);
-  padding: 0px 5px;
-  background-color: #fff;
-  color: #757575;
+  background: transparent;
+  box-shadow: inset 1px 1px 2px 0px rgb(154 147 140 / 50%),
+  1px 1px 2px rgb(235 216 175);
+  color: #888;
 }
 
-.completed {
-  text-decoration: line-through;
-  background-color:papayawhip;
+.button_container {
+  display: flex;
+  align-items: center;
 }
 
 .button_delete,
@@ -60,23 +69,37 @@
   line-height: 1.5;
   padding: 0px 3px;
   border: none;
+  border-radius: 5px;
   background-color: beige;
 }
 
 .button_active {
-  background-color: darksalmon !important; 
+  background-color: #dac616 !important; 
 }
 
 .button_delete:hover,
 .button_edit:hover {
-  background-color: darksalmon;
   transition: all .3s ease;
 }
 
+.button_edit:hover {
+  background-color: #53ce6e;
+}
+
+.button_delete:hover {
+  background-color: #CF2323;
+}
+
 .title {
-  line-height: 1.4;
+  line-height: 1.7;
+  padding: 0 5px;
   word-break: break-all;
   text-align: start;
   width: calc(100% - 125px);
   height: 100%;
+}
+
+.completed {
+  text-decoration: line-through 2px;
+  color: #888
 }

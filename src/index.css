@@ -2,12 +2,10 @@
 
 * {
   font-family: 'Varela Round', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body #root {
-  height: 100vh;
-}
+:focus,:active{outline: none;}

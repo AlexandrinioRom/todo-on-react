@@ -1,25 +1,49 @@
 .header {
-  border: 2px solid blueviolet;
   padding: 15px;
   text-align: center;
-  margin-bottom: 1px;
+  background-color: rgb(221, 213, 197);
 }
 .input {
   line-height: 1.5;
   padding: 0px 5px;
   margin-right: 5px;
-  border: 1px solid coral;
+  height: 26px;
+  width: calc(100% - 100px);
+  border-radius: 6px;
+  border: 1px solid rgb(92, 87, 81);
+  background: rgba(228, 202, 145);
+  box-shadow: inset 1px 1px 2px 0px rgba(154, 147, 140, 0.5),
+  1px 1px 2px rgb(235, 216, 176);
+}
+
+.input:hover,
+.input:focus {
+  border: 1px solid rgb(92, 87, 81);
+  background: rgb(228, 202, 145);
+  transition: 0.3s ease-out;
+  background-color: #fff;
+  box-shadow: inset 1px 1px 2px 0px rgba(154, 147, 140, 0.5),
+  1px 1px 2px rgb(235, 216, 176);
 }
 
 .button {
   line-height: 1.5;
-  padding: 2px 5px;
+  border-radius: 5px;
+  padding: 0 5px;
   border: none;
-  background-color: beige;
+  cursor: pointer;
+  background: rgb(250, 221, 159);
+  color: #444;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25),
+  0 1px 5px rgba(0,0,0,0.22);
 }
 
-.button:hover,
 .button:active {
-  background-color: darksalmon;
-  transition: all .1s ease;
+  box-shadow: inset 1px 1px 2px 1px rgb(154, 147, 140);
+  transition: all .2s;
+}
+
+.button:hover {
+  color: rgb(192, 169, 120);
+  transition: all .2s;
 }
