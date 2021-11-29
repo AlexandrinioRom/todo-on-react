@@ -22,12 +22,12 @@ class App extends React.Component {
     }
   }
 
-  checkTasks = (tasksArr) => {
+  updateTasks = (tasksArr) => {
     this.setState({ tasks: tasksArr })
   }
 
-  filterState = (FilterTaskPanelState) => {
-    this.setState({ filter: FilterTaskPanelState });
+  filterState = (filterTaskPanelState) => {
+    this.setState({ filter: filterTaskPanelState });
   }
 
   render() {
@@ -39,11 +39,11 @@ class App extends React.Component {
         />
         <TasksList
           tasks={this.state.tasks}
-          onClickDelete={this.checkTasks}
-          checkTasks={this.checkTasks}
+          updateTasks={this.updateTasks}
           filterState={this.state.filter}
         />
         <FilterTaskPanel
+          tasks={this.state.tasks}
           filterState={this.filterState}
         />
       </div>

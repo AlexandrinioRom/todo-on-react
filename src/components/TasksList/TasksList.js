@@ -5,20 +5,17 @@ import './TaskList.css'
 class TasksList extends React.Component {
 
   filterTasks = (filter) => {
-    let arrFilter = [];
+
     switch (filter) {
       case 'All':
-        arrFilter = this.props.tasks
-        break
+        return this.props.tasks
       case 'Active':
-        arrFilter = this.props.tasks.filter(task => task.completed === false)
-        break
+        return this.props.tasks.filter(task => task.completed === false)
       case 'Completed':
-        arrFilter = this.props.tasks.filter(task => task.completed !== false)
-        break
-      // no default
+        return this.props.tasks.filter(task => task.completed !== false)
+      default:
+        return []
     }
-    return arrFilter;
   }
 
   onClickEdit = (id, value) => {
@@ -32,7 +29,7 @@ class TasksList extends React.Component {
         value: value
       }
     })
-    this.props.checkTasks(arr)
+    this.props.updateTasks(arr)
   }
 
   onClickCompleted = (id) => {
@@ -46,12 +43,12 @@ class TasksList extends React.Component {
         completed: !task.completed
       }
     })
-    this.props.checkTasks(arr)
+    this.props.updateTasks(arr)
   }
 
   onClickDelete = (id) => {
     const arr = this.props.tasks.filter((task) => task.id !== id)
-    this.props.checkTasks(arr)
+    this.props.updateTasks(arr)
   }
 
   render() {

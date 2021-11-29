@@ -7,7 +7,6 @@ class Task extends React.Component {
     this.state = {
       disabled: true,
       task: this.props.value,
-      completed: this.props.completed,
     }
   }
 
@@ -23,7 +22,6 @@ class Task extends React.Component {
 
   completedTask = () => {
     this.props.onClickCompleted(this.props.id)
-    this.setState({ completed: !this.state.completed })
   }
 
   deleteTask = () => {
@@ -31,8 +29,8 @@ class Task extends React.Component {
   }
 
   render() {
-    const taskTitle = `task-title ${this.state.completed && 'completed'}`
-    const checkbox = `input-checkbox ${this.state.completed && 'checked'}`
+    const titleClassName = `task-title ${this.props.completed && 'completed'}`
+    const checkbox = `input-checkbox ${this.props.completed && 'checked'}`
     return (
       <div className="task">
         <input
@@ -41,9 +39,9 @@ class Task extends React.Component {
           className={checkbox}
         />
         {this.state.disabled ? (
-          <p className={taskTitle}>{this.props.value}</p>
+          <p className={titleClassName}>{this.props.value}</p>
         ) : (
-          <textarea
+          <input
             type="text"
             onChange={this.onChange}
             placeholder={this.props.value}
