@@ -1,6 +1,8 @@
 import React from 'react'
 import Task from '../Task/Task'
+import { connect } from 'react-redux'
 import style from './TaskList.module.css'
+import { deleteTask, editTask, completedTask } from '../../store/actions'
 
 class TasksList extends React.Component {
 
@@ -19,36 +21,15 @@ class TasksList extends React.Component {
   }
 
   onClickEdit = (id, value) => {
-
-    const arr = this.props.tasks.map((task) => {
-      if (task.id !== id) {
-        return task
-      }
-      return {
-        ...task,
-        value: value
-      }
-    })
-    this.props.updateTasks(arr)
+    this.props.editTask(id, value)
   }
 
   onClickCompleted = (id) => {
-
-    const arr = this.props.tasks.map((task) => {
-      if (task.id !== id) {
-        return task
-      }
-      return {
-        ...task,
-        completed: !task.completed
-      }
-    })
-    this.props.updateTasks(arr)
+    this.props.completedTask(id)
   }
 
   onClickDelete = (id) => {
-    const arr = this.props.tasks.filter((task) => task.id !== id)
-    this.props.updateTasks(arr)
+    this.props.deleteTask(id)
   }
 
   render() {
@@ -82,4 +63,9 @@ class TasksList extends React.Component {
   }
 }
 
-export default TasksList
+const mapDispatch = {
+  completedTask,
+  deleteTask,
+  editTask,
+}
+export default connect(null, mapDispatch)(TasksList)
