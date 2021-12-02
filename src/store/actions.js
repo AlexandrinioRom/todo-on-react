@@ -17,7 +17,7 @@ export function deleteTask(taskId) {
 export function editTask(taskId, value) {
   return {
     type: EDIT_TASK,
-    payload: [taskId, value]
+    payload: { taskId, value }
   }
 }
 

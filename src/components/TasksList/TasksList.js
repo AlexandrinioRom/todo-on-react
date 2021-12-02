@@ -5,22 +5,7 @@ import style from './TaskList.module.css'
 import { todoSelectors } from '../../store/selectors'
 import { deleteTask, editTask, completedTask } from '../../store/actions'
 
-
 class TasksList extends React.Component {
-
-  filterTasks = (filter) => {
-
-    switch (filter) {
-      case 'All':
-        return this.props.tasks
-      case 'Active':
-        return this.props.activeTasks
-      case 'Completed':
-        return this.props.completedTasks
-      default:
-        return []
-    }
-  }
 
   onClickEdit = (id, value) => {
     this.props.editTask(id, value)
@@ -36,14 +21,12 @@ class TasksList extends React.Component {
 
   render() {
 
-    const arr = this.filterTasks(this.props.filterState)
-
     return (
 
       <div className={style.main}>
 
-        {arr.length ? (
-          arr.map((task) => {
+        {this.props.tasks.length ? (
+          this.props.tasks.map((task) => {
             return (
               <Task
                 id={task.id}
@@ -59,7 +42,6 @@ class TasksList extends React.Component {
         ) : (
           <p>This list is empty</p>
         )}
-
       </div>
     )
   }
@@ -67,8 +49,7 @@ class TasksList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    activeTasks: todoSelectors.active(state),
-    completedTasks: todoSelectors.completed(state)
+    tasks: todoSelectors.filter(state)
   }
 }
 

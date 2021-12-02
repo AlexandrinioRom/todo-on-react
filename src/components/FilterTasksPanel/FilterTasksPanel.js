@@ -6,14 +6,15 @@ class FilterTaskPanel extends React.Component {
     this.props.filterState(event.target.value)
   }
 
-  tasksCount = (tasksArr) => {
-    const completedTasks = tasksArr.filter((task) => task.completed === true)
-    if (tasksArr.length) {
-      return `${completedTasks.length}/${tasksArr.length}`
+  tasksCount = () => {
+    const completedTasks = this.props.tasks.filter((task) => task.completed)
+    if (this.props.tasks.length) {
+      return `${completedTasks.length}/${this.props.tasks.length}`
     }
   }
 
   render() {
+
     return (
       <div className={style.main}>
         <div className={style.input_container}>
@@ -50,7 +51,7 @@ class FilterTaskPanel extends React.Component {
             onChange={this.onChecked}
           />
         </div>
-        <span>{this.tasksCount(this.props.tasks)}</span>
+        <span>{this.tasksCount()}</span>
       </div>
     )
   }

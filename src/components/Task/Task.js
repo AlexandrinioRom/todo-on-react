@@ -12,7 +12,7 @@ class Task extends React.Component {
 
   editTask = (event) => {
     event.target.blur()
-    if (this.state.disabled !== true) {
+    if (!this.state.disabled) {
       this.props.onClickEdit(this.props.id, this.state.task)
     }
     this.setState({ disabled: !this.state.disabled })

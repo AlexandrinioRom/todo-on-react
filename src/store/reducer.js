@@ -32,12 +32,12 @@ export const tasksReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.map(task => {
-          if (task.id !== action.payload[0]) {
+          if (task.id !== action.payload.taskId) {
             return task
           }
           return {
             ...task,
-            value: task.value = action.payload[1]
+            value: action.payload.value
           }
         })
       }

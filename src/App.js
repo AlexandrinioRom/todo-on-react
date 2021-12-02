@@ -25,17 +25,13 @@ class App extends React.Component {
       <div className={styles.wrapper}>
         <div className={styles.app}>
           <CreateTasksPanel onClickCreate={this.addValues} />
-          <TasksList
-            tasks={this.props.tasks}
-            filterState={this.props.filter}
-          />
+          <TasksList />
           <FilterTaskPanel
             tasks={this.props.tasks}
             filterState={this.filterState}
           />
         </div>
       </div>
-
     )
   }
 }
