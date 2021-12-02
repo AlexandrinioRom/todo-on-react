@@ -2,7 +2,9 @@ import React from 'react'
 import Task from '../Task/Task'
 import { connect } from 'react-redux'
 import style from './TaskList.module.css'
+import { todoSelectors } from '../../store/selectors'
 import { deleteTask, editTask, completedTask } from '../../store/actions'
+
 
 class TasksList extends React.Component {
 
@@ -12,9 +14,9 @@ class TasksList extends React.Component {
       case 'All':
         return this.props.tasks
       case 'Active':
-        return this.props.tasks.filter(task => task.completed === false)
+        return this.props.activeTasks
       case 'Completed':
-        return this.props.tasks.filter(task => task.completed !== false)
+        return this.props.completedTasks
       default:
         return []
     }
@@ -63,9 +65,16 @@ class TasksList extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    activeTasks: todoSelectors.active(state),
+    completedTasks: todoSelectors.completed(state)
+  }
+}
+
 const mapDispatch = {
   completedTask,
   deleteTask,
   editTask,
 }
-export default connect(null, mapDispatch)(TasksList)
+export default connect(mapStateToProps, mapDispatch)(TasksList)

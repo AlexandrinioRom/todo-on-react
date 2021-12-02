@@ -1,4 +1,4 @@
-import { CREATE_TASK, DELETE_TASK, EDIT_TASK, COMPLETED_TASK } from "./types";
+import { CREATE_TASK, DELETE_TASK, EDIT_TASK, COMPLETED_TASK, FILTERED_TASKS } from "./types";
 
 export function createTask(value) {
   return {
@@ -25,5 +25,12 @@ export function completedTask(taskId) {
   return {
     type: COMPLETED_TASK,
     payload: taskId
+  }
+}
+
+export function filteredTasks(filterId) {
+  return {
+    type: FILTERED_TASKS,
+    payload: filterId
   }
 }

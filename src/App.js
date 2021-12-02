@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from './App.module.css'
 import { connect } from 'react-redux'
-import { createTask } from './store/actions'
 import TasksList from './components/TasksList/TasksList'
+import { createTask, filteredTasks } from './store/actions'
 import FilterTaskPanel from './components/FilterTasksPanel/FilterTasksPanel'
 import CreateTasksPanel from './components/CreateTasksPanel/CreateTasksPanel'
+
 
 class App extends React.Component {
   state = { tasks: [], filter: 'All' }
@@ -15,12 +16,8 @@ class App extends React.Component {
     }
   }
 
-  updateTasks = (tasksArr) => {
-    this.setState({ tasks: tasksArr })
-  }
-
   filterState = (filterTaskPanelState) => {
-    this.setState({ filter: filterTaskPanelState })
+    this.props.filteredTasks(filterTaskPanelState)
   }
 
   render() {
@@ -30,11 +27,10 @@ class App extends React.Component {
           <CreateTasksPanel onClickCreate={this.addValues} />
           <TasksList
             tasks={this.props.tasks}
-            updateTasks={this.updateTasks}
-            filterState={this.state.filter}
+            filterState={this.props.filter}
           />
           <FilterTaskPanel
-            tasks={this.state.tasks}
+            tasks={this.props.tasks}
             filterState={this.filterState}
           />
         </div>
@@ -45,15 +41,15 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-
   return {
+    filter: state.todos.filter,
     tasks: state.todos.tasks,
-    filter: state.todos.filter
   }
 }
 
 const mapDispatch = {
-  createTask
+  filteredTasks,
+  createTask,
 }
 
 export default connect(mapStateToProps, mapDispatch)(App)

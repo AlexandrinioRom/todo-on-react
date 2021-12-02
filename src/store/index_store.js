@@ -5,6 +5,13 @@ const rootReducer = combineReducers({
   todos: tasksReducer
 })
 
-export const store = createStore(rootReducer, compose(
+
+
+const persistedState = localStorage.getItem('reduxState')
+  ? JSON.parse(localStorage.getItem('reduxState'))
+  : {}
+
+export const store = createStore(rootReducer, persistedState, compose(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
+

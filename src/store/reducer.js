@@ -1,8 +1,8 @@
-import { CREATE_TASK, DELETE_TASK, EDIT_TASK, COMPLETED_TASK } from "./types";
+import { CREATE_TASK, DELETE_TASK, EDIT_TASK, COMPLETED_TASK, FILTERED_TASKS } from "./types";
 
 const initialState = {
   tasks: [],
-  filter: ''
+  filter: 'All'
 }
 
 function nextTodoId() {
@@ -55,6 +55,13 @@ export const tasksReducer = (state = initialState, action) => {
           }
         })
       }
+
+    case FILTERED_TASKS:
+      return {
+        ...state,
+        filter: action.payload
+      }
+
     default: return state
   }
 }
