@@ -2,7 +2,7 @@ import { CREATE_TASK, DELETE_TASK, EDIT_TASK, COMPLETED_TASK, FILTERED_TASKS } f
 
 const initialState = {
   tasks: [],
-  filter: 'All'
+  filter: ''
 }
 
 function nextTodoId() {

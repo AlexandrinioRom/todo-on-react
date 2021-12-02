@@ -25,7 +25,6 @@ class FilterTaskPanel extends React.Component {
             type="radio"
             name="filter"
             className={style.input}
-            defaultChecked
             onChange={this.onChecked}
           />
 

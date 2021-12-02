@@ -8,7 +8,7 @@ import CreateTasksPanel from './components/CreateTasksPanel/CreateTasksPanel'
 
 
 class App extends React.Component {
-  state = { tasks: [], filter: 'All' }
+  state = { tasks: [], filter: '' }
 
   addValues = (value) => {
     if (value) {

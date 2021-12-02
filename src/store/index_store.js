@@ -5,8 +5,6 @@ const rootReducer = combineReducers({
   todos: tasksReducer
 })
 
-
-
 const persistedState = localStorage.getItem('reduxState')
   ? JSON.parse(localStorage.getItem('reduxState'))
   : {}
